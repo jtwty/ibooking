@@ -17,8 +17,8 @@ spring:
 
   sql:
     init:
-      schema-locations: classpath:schema.sql
-      data-locations: classpath:data.sql
+      schema-locations: classpath:mySchema.sql
+      data-locations: classpath:myData.sql
       mode: always
 
 mybatis:
