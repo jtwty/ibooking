@@ -13,42 +13,40 @@ import java.util.Optional;
 @RestController
 public class StudentController {
     @Autowired
-    private StudentBusiness studentBusiness;
+    private StudentBusiness stuBiz;
 
-    @GetMapping(value = "/students")
-    public ResponseEntity<List<StudentDO>> listStudents() {
-        final List<StudentDO> students = studentBusiness.getStudents();
+    @GetMapping(value = "/student")
+    public ResponseEntity<List<StudentDO>> list() {
+        final List<StudentDO> students = stuBiz.getStudents();
 
         return new ResponseEntity<>(students, HttpStatus.OK);
     }
 
-    @GetMapping(value = "/students/{stu_num}")
-    public ResponseEntity<StudentDO> queryStudentByStuNum(@PathVariable("stu_num") String stu_num) {
-        Optional<StudentDO> studentOpt = studentBusiness.getStudentByStuNum(stu_num);
+    @GetMapping(value = "/student/{stu_num}")
+    public ResponseEntity<StudentDO> query(@PathVariable("stu_num") String stu_num) {
+        Optional<StudentDO> stu = stuBiz.getStudent(stu_num);
 
-        return studentOpt.map(studentDO -> new ResponseEntity<>(studentDO, HttpStatus.OK))
+        return stu.map(studentDO -> new ResponseEntity<>(studentDO, HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.BAD_REQUEST));
     }
 
-    @PostMapping(value = "/students")
-    public ResponseEntity<Void> addStudent(@RequestBody StudentDO student) {
-        boolean result = studentBusiness.saveOrUpdateStudent(student);
-
-        return new ResponseEntity<>(result ? HttpStatus.CREATED : HttpStatus.BAD_REQUEST);
-    }
-
-    // PUT 方法用于更新整个实体，此处可保持原样，也可考虑提供单独的更新方法（例如：/students/{stuNum}/update）
-    @PutMapping(value = "/students")
-    public ResponseEntity<Void> saveStudent(@RequestBody StudentDO student) {
-        boolean result = studentBusiness.saveOrUpdateStudent(student);
+    @PostMapping(value = "/student")
+    public ResponseEntity<Void> add(@RequestBody StudentDO student) {
+        boolean result = stuBiz.saveStudent(student);
 
         return new ResponseEntity<>(result ? HttpStatus.OK : HttpStatus.BAD_REQUEST);
     }
 
-    @DeleteMapping(value = "/students/{stu_num}")
-    public ResponseEntity<Void> deleteStudentByStuNum(@PathVariable("stu_num") String stu_num) {
-        boolean result = studentBusiness.deleteStudentByStuNum(stu_num);
+    @PutMapping(value = "/student")
+    public ResponseEntity<Void> save(@RequestBody StudentDO student) {
+        boolean result = stuBiz.saveStudent(student);
 
+        return new ResponseEntity<>(result ? HttpStatus.OK : HttpStatus.BAD_REQUEST);
+    }
+
+    @RequestMapping(value = "/student/{stu_num}", method = RequestMethod.DELETE)
+    public ResponseEntity<Void> delete(@PathVariable("stu_num") String stu_num) {
+        boolean result = stuBiz.deleteStudent(stu_num);
         return new ResponseEntity<>(result ? HttpStatus.OK : HttpStatus.BAD_REQUEST);
     }
 }
