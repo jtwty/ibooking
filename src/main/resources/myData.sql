@@ -1,9 +1,9 @@
 -- 插入student表数据
-INSERT INTO student (password, stu_name, phone, email, date_joined) VALUES
-('hashed_password_01', 'StudentName01', 13800000001, 'student01@example.com', NOW()),
-('hashed_password_02', 'StudentName02', 13800000002, 'student02@example.com', NOW()),
+INSERT INTO student (stu_num, password, stu_name, phone, email, date_joined) VALUES
+('23210240001', 'hashed_password_01', 'StudentName01', '13800000001', 'student01@example.com', NOW()),
+('23210240002', 'hashed_password_02', 'StudentName02', '13800000002', 'student02@example.com', NOW()),
 -- ... 按照同样格式重复至第10条记录
-('hashed_password_10', 'StudentName10', 13800000010, 'student10@example.com', NOW());
+('23210240003', 'hashed_password_10', 'StudentName10', '13800000010', 'student10@example.com', NOW());
 
 -- 插入admin表数据
 INSERT INTO admin (password) VALUES

@@ -12,19 +12,23 @@ public class StudentDao {
     @Autowired
     private StudentMapper studentMapper;
 
+    // 查询所有学生
     public List<StudentDO> getStudents() {
         return studentMapper.getStudents();
     }
 
-    public List<StudentDO> getStudent(final String stuNum) {
-        return studentMapper.getStudent(stuNum);
+    // 根据学号查询学生
+    public StudentDO getStudentByStuNum(final String stu_num) {
+        return studentMapper.getStudentByStuNum(stu_num);
     }
 
-    public boolean saveStudent(final StudentDO stu) {
-        return studentMapper.saveStudent(stu) > 0;
+    // 保存（新增或更新）学生信息
+    public boolean saveOrUpdateStudent(final StudentDO stu) {
+        return studentMapper.saveOrUpdateStudent(stu) > 0;
     }
 
-    public boolean deleteStudent(final String stuNum) {
-        return studentMapper.deleteStudent(stuNum) > 0;
+    // 根据学号删除学生
+    public boolean deleteStudentByStuNum(final String stu_num) {
+        return studentMapper.deleteStudentByStuNum(stu_num) > 0;
     }
 }

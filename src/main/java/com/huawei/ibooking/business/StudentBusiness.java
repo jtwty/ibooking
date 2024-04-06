@@ -17,8 +17,8 @@ public class StudentBusiness {
         return studentDao.getStudents();
     }
 
-    public Optional<StudentDO> getStudent(final String stuNum) {
-        List<StudentDO> students = studentDao.getStudent(stuNum);
+    public Optional<StudentDO> getStudent(final String stu_num) {
+        List<StudentDO> students = studentDao.getStudent(stu_num);
         if (students.isEmpty()) {
             return Optional.empty();
         }
@@ -30,7 +30,7 @@ public class StudentBusiness {
         return studentDao.saveStudent(stu);
     }
 
-    public boolean deleteStudent(final String stuNum) {
-        return studentDao.deleteStudent(stuNum);
+    public boolean deleteStudent(final String stu_num) {
+        return studentDao.deleteStudent(stu_num);
     }
 }
