@@ -35,7 +35,7 @@
     transition: color 0.2s ease-in-out;
   }
   .nav-item .nav-link:hover {
-    color: #47d007; /* Bootstrap primary color */
+    color: #191ce1; /* Bootstrap primary color */
     text-decoration: none;
   }
 </style>
