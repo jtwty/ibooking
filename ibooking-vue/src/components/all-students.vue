@@ -1,14 +1,15 @@
 <template>
-  <div id="all_students">
-    <h1>学生管理</h1>
+  <div id="all_students" class="container mt-5">
+    <h1 class="mb-4">学生管理</h1>
 
-    <p>
-      <router-link :to="{ name: 'add_student' }" class="btn btn-primary"
-        >添加学生信息</router-link
-      >
-    </p>
+    <div class="mb-3">
+      <router-link :to="{ name: 'add_student' }" class="btn btn-success">
+        添加学生信息
+      </router-link>
+    </div>
 
-    <div class="form-group">
+
+    <div class="input-group mb-3">
       <input
         type="text"
         name="search"
@@ -17,82 +18,35 @@
         class="form-control"
         v-on:keyup="searchStudents"
       />
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button" @click="searchStudents">搜索</button>
+      </div>
     </div>
 
-    <table class="table table-hover">
-      <thead>
+    <table class="table table-bordered table-hover">
+      <thead class="thead-dark">
         <tr>
-          <td>ID</td>
-          <td>学号</td>
-          <td>姓名</td>
-          <td>操作</td>
+          <th>ID</th>
+          <th>学号</th>
+          <th>姓名</th>
+          <th>操作</th>
         </tr>
       </thead>
-
       <tbody>
-        <tr v-for="student in students">
+        <tr v-for="student in students" :key="student.id">
           <td>{{ student.id }}</td>
           <td>{{ student.stuNum }}</td>
           <td>{{ student.name }}</td>
           <td>
-            <router-link
-              :to="{ name: 'edit_student', params: { stu: student } }"
-              class="btn btn-primary"
-              >修改</router-link
-            >
-            <router-link
-              :to="{ name: 'delete_student', params: { stu: student } }"
-              class="btn btn-danger"
-              >删除</router-link
-            >
+            <router-link :to="{ name: 'edit_student', params: { stu: student } }" class="btn btn-info mr-2">
+              修改
+            </router-link>
+            <router-link :to="{ name: 'delete_student', params: { stu: student } }" class="btn btn-warning">
+              删除
+            </router-link>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-      students: [],
-      originalStudents: [],
-      studentSearch: "",
-    };
-  },
-
-  created: function () {
-    this.fetchStudentData();
-  },
-
-  methods: {
-    fetchStudentData: function () {
-      this.$http.get("http://127.0.0.1:8090/student").then(
-        (response) => {
-          this.students = response.body;
-          this.originalStudents = this.students;
-        },
-        (response) => {}
-      );
-    },
-
-    searchStudents: function () {
-      if (this.studentSearch == "") {
-        this.students = this.originalStudents;
-        return;
-      }
-
-      var searchedStudents = [];
-      for (var i = 0; i < this.originalStudents.length; i++) {
-        var studentName = this.originalStudents[i]["name"].toLowerCase();
-        if (studentName.indexOf(this.studentSearch.toLowerCase()) >= 0) {
-          searchedStudents.push(this.originalStudents[i]);
-        }
-      }
-
-      this.students = searchedStudents;
-    },
-  },
-};
-</script>
