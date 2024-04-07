@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
     <div id="app" class="container mt-4">
       <nav class="navbar navbar-expand-lg navbar-light bg-light rounded mb-4">
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -16,7 +16,9 @@
           </ul>
         </div>
       </nav>
-      <router-view></router-view>
+      <router-view> -->
+        <!-- This component will be rendered here -->
+      <!-- </router-view>
     </div>
   </template>
   
@@ -44,4 +46,16 @@
   export default {
     name: "app",
   };
+  </script> -->
+
+  <template>
+    <transition name="fade">
+      <router-view></router-view>
+    </transition>
+  </template>
+  
+  <script>
+    export default {
+    }
   </script>
+  

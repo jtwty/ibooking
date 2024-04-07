@@ -6,6 +6,17 @@ Vue.use(VueRouter)
 import VueResource from 'vue-resource';
 Vue.use(VueResource);
 
+// src/main.js
+import App from './App.vue';
+import router from './router'; // 引入路由配置
+
+Vue.config.productionTip = false;
+
+new Vue({
+  router, // 使用路由
+  render: h => h(App),
+}).$mount('#app');
+
 import App from './App.vue'
 
 const AllStudents = require('./components/all-students.vue');
