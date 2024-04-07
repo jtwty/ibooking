@@ -8,24 +8,24 @@
     <resultMap id="stu" type="com.huawei.ibooking.model.StudentDO"/>
 
     <select id="getStudents" resultMap="stu">
-        select id, stuNum, name, password
-        from tbl_student
+        select stu_num, password, stu_name
+        from student
     </select>
 
     <select id="getStudent" resultMap="stu" parameterType="java.lang.String">
-        select id, stuNum, name, password
-        from tbl_student
-        where stuNum = #{stuNum}
+        select stu_num, password, stu_name
+        from student
+        where stu_num = #{stu_num}
     </select>
 
     <update id="saveStudent" parameterType="com.huawei.ibooking.model.StudentDO">
-        merge into tbl_student (stuNum, name, password) key (stuNum)
-            values (#{stu.stuNum}, #{stu.name}, #{stu.password})
+        merge into tbl_student (stu_num, password, stu_name) key (stu_num)
+            values (#{stu.stu_num}, #{stu.password}, #{stu.stu_name})
     </update>
 
     <delete id="deleteStudent" parameterType="java.lang.String">
         delete
-        from tbl_student
-        where stuNum = #{stuNum}
+        from student
+        where stu_num = #{stu_num}
     </delete>
 </mapper>

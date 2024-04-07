@@ -16,14 +16,6 @@ public class SeatDO {
     private String classCampus;
     private String classBuilding;
 
-    // 构造函数、getter和setter方法
-    public Seat() {}
-
-    public Seat(Integer classId, String classCampus, String classBuilding) {
-        this.classId = classId;
-        this.classCampus = classCampus;
-        this.classBuilding = classBuilding;
-    }
 
     // Getter and Setter methods
     // ...
