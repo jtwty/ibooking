@@ -19,6 +19,8 @@
     "cross-env": "^3.0.0",
     "css-loader": "^0.25.0",
     "file-loader": "^0.9.0",
+    "node-sass": "^6.0.1",
+    "sass-loader": "^6.0.6",
     "vue-hot-reload-api": "^2.3.4",
     "vue-loader": "^9.7.0",
     "vue-resource": "^1.0.3",
