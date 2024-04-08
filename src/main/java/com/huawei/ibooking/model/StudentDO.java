@@ -21,7 +21,7 @@ public class StudentDO {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "stu_num")
-    private string stu_num;
+    private String stu_num;
 
     @Column(name = "password", nullable = false, length = 128)
     private String password;
