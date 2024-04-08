@@ -1,12 +1,12 @@
 package com.huawei.ibooking.model;
 
 import java.time.LocalDateTime;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,7 +21,7 @@ public class StudentDO {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "stu_num")
-    private string stu_num;
+    private String stu_num;
 
     @Column(name = "password", nullable = false, length = 128)
     private String password;
@@ -37,6 +37,14 @@ public class StudentDO {
 
     @Column(name = "date_joined", nullable = false)
     private LocalDateTime dateJoined; // 将datetime类型转换为Java的LocalDateTime类型
+
+    public String  getStuNum() {
+        return this.stu_num;
+    }
+
+    public void setStuNum(String stu_num) {
+        this.stu_num = stu_num;
+    }
 
     // 可能还缺少学号字段，若SQL中stu_num字段存在，请添加
     // @Column(name = "stu_num", nullable = false, length = ...)

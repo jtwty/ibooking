@@ -1,9 +1,9 @@
 package com.huawei.ibooking.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
 public class SeatDO {
@@ -17,9 +17,9 @@ public class SeatDO {
     private String classBuilding;
 
     // 构造函数、getter和setter方法
-    public Seat() {}
+    public void Seat() {}
 
-    public Seat(Integer classId, String classCampus, String classBuilding) {
+    public void Seat(Integer classId, String classCampus, String classBuilding) {
         this.classId = classId;
         this.classCampus = classCampus;
         this.classBuilding = classBuilding;
