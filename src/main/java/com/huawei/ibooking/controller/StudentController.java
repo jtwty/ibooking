@@ -2,6 +2,7 @@ package com.huawei.ibooking.controller;
 
 import com.huawei.ibooking.business.StudentBusiness;
 import com.huawei.ibooking.model.StudentDO;
+import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +13,7 @@ import java.util.Optional;
 
 @RestController
 public class StudentController {
-    @Autowired
+    @Resource
     private StudentBusiness stuBiz;
 
     @GetMapping(value = "/student")

@@ -2,6 +2,7 @@ package com.huawei.ibooking.business;
 
 import com.huawei.ibooking.dao.StudentDao;
 import com.huawei.ibooking.model.StudentDO;
+import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -10,7 +11,7 @@ import java.util.Optional;
 
 @Component
 public class StudentBusiness {
-    @Autowired
+    @Resource
     private StudentDao studentDao;
 
     public List<StudentDO> getStudents() {
