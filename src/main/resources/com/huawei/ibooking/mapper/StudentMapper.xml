@@ -18,10 +18,10 @@
         where stu_num = #{stu_num}
     </select>
 
-    <update id="saveStudent" parameterType="com.huawei.ibooking.model.StudentDO">
-        insert into student (stu_num, password, stu_name)
-            values (#{stu.stu_num}, #{stu.password}, #{stu.stu_name})
-    </update>
+<!--    <update id="saveStudent" parameterType="com.huawei.ibooking.model.StudentDO">-->
+<!--        insert into student (stu_num, password, stu_name, phone, email, date_joined)-->
+<!--            values (#{stu_num}, #{stu.password}, #{stu.stu_name}, #{stu.phone}, #{stu.email}, #{stu.date_joined})-->
+<!--    </update>-->
 
     <delete id="deleteStudent" parameterType="java.lang.String">
         delete

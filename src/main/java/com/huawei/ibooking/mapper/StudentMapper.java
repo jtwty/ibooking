@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Mapper
@@ -15,8 +16,8 @@ public interface StudentMapper {
     List<StudentDO> getStudents();
 
     List<StudentDO> getStudent(@Param("stu_num") String stu_num);
-//    @Insert("insert into student (stu_num, password, stu_name) values (#{stu.stu_num}, #{stu.password}, #{stu.stu_name})")
-    int saveStudent(@Param("stu") StudentDO stu);
+    @Insert("insert into student (stu_num, password, stu_name, phone, email, date_joined) values (#{stu_num}, #{password}, #{stu_name}, #{phone}, #{email}, #{date_joined})")
+    int saveStudent(String stu_num, String password, String stu_name, String phone, String email, LocalDateTime date_joined);
 
     int deleteStudent(@Param("stu_num") String stu_num);
 }
