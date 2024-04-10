@@ -6,6 +6,7 @@ import jakarta.annotation.Resource;
 
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Component
@@ -22,7 +23,13 @@ public class StudentDao {
     }
 
     public boolean saveStudent(final StudentDO stu) {
-        return studentMapper.saveStudent(stu) > 0;
+        String stu_num=stu.getStu_num();
+        String password = stu.getPassword();
+        String stu_name = stu.getStu_name();
+        String phone = stu.getPhone();
+        String email = stu.getEmail();
+        LocalDateTime date_joined = stu.getDateJoined();
+        return studentMapper.saveStudent(stu_num,password, stu_name, phone, email, date_joined) > 0;
     }
 
     public boolean deleteStudent(final String stu_num) {
