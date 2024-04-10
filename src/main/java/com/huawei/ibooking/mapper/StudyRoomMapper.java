@@ -18,5 +18,6 @@ public interface StudyRoomMapper {
     @Delete("delete from classroom where id = #{id}")
     int deleteStudyRoom(int id);
 
-
+    @Select("select * from classroom where  id=#{id}")
+    List<StudyRoomDO> getStudyRoom(int id);
 }

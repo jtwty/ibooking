@@ -12,10 +12,16 @@ import lombok.Setter;
 public class SeatDO {
 
 
-    private Long id;
+    private int id;
 
     private Integer classId;
     private String classCampus;
     private String classBuilding;
 
+    public SeatDO(int id, Integer classId, String classCampus, String classBuilding) {
+        this.id = id;
+        this.classId = classId;
+        this.classCampus = classCampus;
+        this.classBuilding = classBuilding;
+    }
 }

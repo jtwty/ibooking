@@ -2,9 +2,9 @@ CREATE TABLE IF NOT EXISTS student(
                                       stu_num varchar(32) NOT NULL,
                                       password varchar(128) NOT NULL,
                                       stu_name varchar(150) NOT NULL,
-                                      phone varchar(254) NOT NULL,
-                                      email varchar(254) NOT NULL,
-                                      date_joined datetime(6) NOT NULL,
+                                      phone varchar(254) ,
+                                      email varchar(254) ,
+                                      date_joined datetime(6) ,
                                       PRIMARY KEY (stu_num),
                                       UNIQUE KEY stu_name(stu_name)
 );

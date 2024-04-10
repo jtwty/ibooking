@@ -30,7 +30,7 @@ public class StudentSqlTest {
     public void saveStudentTest() {
 
         System.out.println("测试开始");
-        StudentDO newstudent=new StudentDO("23210240011","testpassword1","testusername1","11111111","22222222222", LocalDateTime.now());
+        StudentDO newstudent=new StudentDO("23210240012","testpassword1","testusername2","11111111","22222222222", LocalDateTime.now());
         boolean flag=dao.saveStudent(newstudent);
 
         List<StudentDO> students=dao.getStudents();

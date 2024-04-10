@@ -17,16 +17,19 @@ public class StudyRoomDao {
     public List<StudyRoomDO> getStudyRooms(){
         return mapper.getStudyRooms();
     }
-    public int addStudyRoom(StudyRoomDO studyRoom){
+    public boolean addStudyRoom(StudyRoomDO studyRoom){
         int id=studyRoom.getId();
         String campus=studyRoom.getCampus();
         String building=studyRoom.getBuilding();
-        return mapper.addStudyRoom(id, campus, building);
+        return mapper.addStudyRoom(id, campus, building) > 0;
 
     }
-    public int deleteStudyRoom(int id){
-        return mapper.deleteStudyRoom(id);
+    public boolean deleteStudyRoom(int id){
+        return mapper.deleteStudyRoom(id) > 0;
     }
 
 
+    public List<StudyRoomDO> getStudyRoom(int id) {
+        return mapper.getStudyRoom(id);
+    }
 }
