@@ -11,7 +11,7 @@ spring:
 #    name: studyroom
     url: jdbc:mysql://localhost:3306/studyroom?
     username: root
-    password: 151676
+    password: 802117
 #    type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
 

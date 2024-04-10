@@ -7,10 +7,10 @@
 <mapper namespace="com.huawei.ibooking.mapper.StudentMapper">
     <resultMap id="stu" type="com.huawei.ibooking.model.StudentDO"/>
 
-    <select id="getStudents" resultMap="stu">
-        select stu_num, password, stu_name
-        from student
-    </select>
+<!--    <select id="getStudents" resultMap="stu">-->
+<!--        select stu_num, password, stu_name-->
+<!--        from student-->
+<!--    </select>-->
 
     <select id="getStudent" resultMap="stu" parameterType="java.lang.String">
         select stu_num, password, stu_name
@@ -19,7 +19,7 @@
     </select>
 
     <update id="saveStudent" parameterType="com.huawei.ibooking.model.StudentDO">
-        merge into tbl_student (stu_num, password, stu_name) key (stu_num)
+        insert into student (stu_num, password, stu_name)
             values (#{stu.stu_num}, #{stu.password}, #{stu.stu_name})
     </update>
 
