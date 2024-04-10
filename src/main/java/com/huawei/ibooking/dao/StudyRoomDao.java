@@ -24,6 +24,9 @@ public class StudyRoomDao {
         return mapper.addStudyRoom(id, campus, building);
 
     }
+    public int deleteStudyRoom(int id){
+        return mapper.deleteStudyRoom(id);
+    }
 
 
 }

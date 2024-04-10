@@ -19,7 +19,7 @@ spring:
     init:
       schema-locations: classpath:mySchema.sql
       data-locations: classpath:myData.sql
-      mode: always
+      mode: never
 
 mybatis:
   mapper-locations: classpath:com.huawei.ibooking.mapper/*.xml
