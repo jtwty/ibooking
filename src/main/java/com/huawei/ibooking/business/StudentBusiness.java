@@ -18,7 +18,7 @@ public class StudentBusiness {
         return studentDao.getStudents();
     }
 
-    public Optional<StudentDO> getStudent(final String stu_num) {
+    public Optional<StudentDO> getStudent(String stu_num) {
         List<StudentDO> students = studentDao.getStudent(stu_num);
         if (students.isEmpty()) {
             return Optional.empty();

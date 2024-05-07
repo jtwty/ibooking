@@ -18,7 +18,7 @@ public class StudentDao {
         return studentMapper.getStudents();
     }
 
-    public List<StudentDO> getStudent(final String stu_num) {
+    public List<StudentDO> getStudent(String stu_num) {
         return studentMapper.getStudent(stu_num);
     }
 
